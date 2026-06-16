@@ -17,7 +17,7 @@ class Database {
             // Retrieve configuration from environment variables with safe defaults
             $host = Env::get('DB_HOST', '127.0.0.1');
             $user = Env::get('DB_USER', 'root');
-            $pass = Env::get('DB_PASS', 'Thi$i$spm15!'); 
+            $pass = Env::get('DB_PASS', ''); 
             $db   = Env::get('DB_NAME', 'edocs_spmnara');
             $port = (int)Env::get('DB_PORT', 3306);
 
