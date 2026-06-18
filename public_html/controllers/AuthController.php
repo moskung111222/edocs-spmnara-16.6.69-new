@@ -56,6 +56,10 @@ class AuthController {
                     $_SESSION['officer_role']     = $officer['role'];
                     $_SESSION['officer_name']     = $officer['name'];
                     $_SESSION['officer_email']    = $officer['email'];
+                    $_SESSION['officer_department_id'] = $officer['department_id'] ?? null;
+
+                    // Load RBAC permissions into session
+                    \App\Services\RBACService::loadSessionPermissions($officer['id']);
 
                     // Audit log entry
                     RequestService::logAudit(

@@ -46,6 +46,31 @@
                         <a href="<?= \App\Config\Config::SITE_URL ?>/admin/dashboard?status=need_info" class="admin-sidebar-link text-warning">
                             <i class="fa-solid fa-triangle-exclamation me-2"></i> รอคำชี้แจงเพิ่ม
                         </a>
+
+                        <?php if (\App\Middleware\AuthMiddleware::hasPermission('departments.view')): ?>
+                        <hr class="my-1 border-secondary opacity-25">
+                        <a href="<?= \App\Config\Config::SITE_URL ?>/admin/departments" class="admin-sidebar-link">
+                            <i class="fa-solid fa-building me-2"></i> กลุ่มงาน/แผนก
+                        </a>
+                        <?php endif; ?>
+
+                        <?php if (\App\Middleware\AuthMiddleware::hasPermission('services.view')): ?>
+                        <a href="<?= \App\Config\Config::SITE_URL ?>/admin/services" class="admin-sidebar-link">
+                            <i class="fa-solid fa-clipboard-list me-2"></i> ประเภทบริการ
+                        </a>
+                        <?php endif; ?>
+
+                        <?php if (\App\Middleware\AuthMiddleware::hasPermission('officers.view')): ?>
+                        <a href="<?= \App\Config\Config::SITE_URL ?>/admin/officers" class="admin-sidebar-link">
+                            <i class="fa-solid fa-users-gear me-2"></i> จัดการเจ้าหน้าที่
+                        </a>
+                        <?php endif; ?>
+
+                        <?php if (\App\Middleware\AuthMiddleware::hasPermission('roles.view')): ?>
+                        <a href="<?= \App\Config\Config::SITE_URL ?>/admin/roles" class="admin-sidebar-link">
+                            <i class="fa-solid fa-user-lock me-2"></i> Roles & สิทธิ์
+                        </a>
+                        <?php endif; ?>
                     </nav>
                 </div>
 

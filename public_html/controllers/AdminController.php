@@ -93,9 +93,9 @@ class AdminController {
                     } 
                     
                     elseif ($action === 'assign_officer') {
-                        // Only admin or head can assign
-                        if (!in_array($_SESSION['officer_role'], ['admin', 'head'])) {
-                            throw new Exception("เฉพาะหัวหน้ากลุ่มงานหรือผู้ดูแลระบบเท่านั้นที่สามารถมอบหมายงานได้");
+                        // RBAC: Check permission for assigning officers
+                        if (!AuthMiddleware::hasPermission('requests.assign')) {
+                            throw new Exception("เฉพาะผู้มีสิทธิ์ 'requests.assign' เท่านั้นที่สามารถมอบหมายงานได้");
                         }
 
                         $officerId = isset($_POST['officer_id']) && $_POST['officer_id'] !== '' ? (int)$_POST['officer_id'] : null;

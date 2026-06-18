@@ -87,6 +87,38 @@ try {
     } elseif ($route === 'admin/request') {
         $controller = new \App\Controllers\AdminController();
         $controller->requestDetail();
+
+    // Department Management Routes
+    } elseif ($route === 'admin/departments') {
+        $controller = new \App\Controllers\DepartmentController();
+        $controller->index();
+
+    // Service (Request Types) Management Routes
+    } elseif ($route === 'admin/services') {
+        $controller = new \App\Controllers\ServiceController();
+        $controller->index();
+
+    // Officer Management Routes
+    } elseif ($route === 'admin/officers') {
+        $controller = new \App\Controllers\OfficerController();
+        $controller->index();
+    } elseif ($route === 'admin/officer/create') {
+        $controller = new \App\Controllers\OfficerController();
+        $controller->create();
+    } elseif ($route === 'admin/officer/edit') {
+        $controller = new \App\Controllers\OfficerController();
+        $controller->edit();
+
+    // Role & Permission Management Routes
+    } elseif ($route === 'admin/roles') {
+        $controller = new \App\Controllers\RoleController();
+        $controller->index();
+    } elseif ($route === 'admin/role/edit') {
+        $controller = new \App\Controllers\RoleController();
+        $controller->edit();
+    } elseif ($route === 'admin/role/create') {
+        $controller = new \App\Controllers\RoleController();
+        $controller->create();
         
     // API Route delegation
     } elseif ($route === 'api/requests') {
